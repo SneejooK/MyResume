@@ -1,16 +1,7 @@
 package com.entity;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "user")
@@ -19,14 +10,17 @@ import javax.persistence.Table;
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
+    
     @Basic(optional = false)
     @Column(name = "name")
     private String name;
+    
     @Lob
     @Column(name = "comment")
     private String comment;
@@ -34,12 +28,7 @@ public class User implements Serializable {
     public User() {
     }
 
-    public User(Integer id) {
-        this.id = id;
-    }
-
-    public User(Integer id, String name) {
-        this.id = id;
+    public User(String name) {
         this.name = name;
     }
 
@@ -89,7 +78,7 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return "com.entity.User[ id=" + id + " ]";
+        return "User{" + "id=" + id + ", name=" + name + ", comment=" + comment + '}';
     }
 
 }
