@@ -1,0 +1,61 @@
+@media only screen and (max-width:1500px){
+#insta {
+	position:absolute;
+	text-align:center;
+	bottom:1px;
+	margin-bottom:-5200px;
+	margin-left:200px;
+}
+#insta p {
+	margin-top:-30px;
+	font-family: Comic Sans MS, sans-serifle;
+	font-size:15px;
+	fon-weight:bold;
+	color:#16358f;
+}
+/*значек линкеда*/
+#linked {
+	position:absolute;
+	right:50px;
+	bottom:1px;
+	margin-bottom:-5200px;
+	margin-right:200px;
+}
+#topping {
+	display:none;
+	text-align:center;
+	top:920px;
+	left:80px;
+}
+}
+
+@media only screen and (max-width:250px){
+#insta {
+	position:absolute;
+	text-align:center;
+	bottom:1px;
+	margin-bottom:-5200px;
+	margin-left:200px;
+}
+#insta p {
+	margin-top:-30px;
+	font-family: Comic Sans MS, sans-serifle;
+	font-size:15px;
+	fon-weight:bold;
+	color:#16358f;
+}
+/*значек линкеда*/
+#linked {
+	position:absolute;
+	right:50px;
+	bottom:1px;
+	margin-bottom:-5200px;
+	margin-right:200px;
+}
+#topping {
+	display:none;
+	text-align:center;
+	top:920px;
+	left:80px;
+}
+}
