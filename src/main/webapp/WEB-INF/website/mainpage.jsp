@@ -6,8 +6,10 @@
         <meta name="keywords" content="Рэзюме,айти"/>
         <meta name="description" content="Небольшое резюие в виде сайт" />
         <link href="img/icon.ico" rel="shortcut icon" type="image/x-icon"/>
-        <link href="style.css" rel="stylesheet" type="text/css" />
-        <link href="media-style.css" rel="stylesheet" type="text/css" />
+        <style>
+            <%@include file="/WEB-INF/website/css/style.css"%>
+            <%@include file="/WEB-INF/website/css/media-style.css"%>
+        </style>
         <title>My resume!</title>
     </head>
     <body>
