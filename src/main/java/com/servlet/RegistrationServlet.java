@@ -10,29 +10,34 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(urlPatterns = "/registration")
-public class RegistrationServlet extends HttpServlet{
-    
+public class RegistrationServlet extends HttpServlet {
+
     UserRepository ur = new UserRepository();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/website/initpage.jsp").forward(req, resp);
+        String firstnameParametr = req.getParameter("firstname");
+        if (firstnameParametr != null) {
+            resp.sendRedirect("resume");
+        } else {
+            req.getRequestDispatcher("/website/initpage.jsp").forward(req, resp);
+        }
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String firstname = req.getParameter("firstname");
-        
+
         String correct = "Please provide firstname";;
-        
-        if(firstname == null){
+
+        if (firstname == null) {
             req.setAttribute("correct", correct);
-            req.getRequestDispatcher("/WEB-INF/website/initpage.jsp").forward(req, resp);
+            req.getRequestDispatcher("/website/initpage.jsp").forward(req, resp);
             return;
         } else {
             ur.create(new User(firstname));
             resp.sendRedirect("/resume");
         }
     }
-    
+
 }
