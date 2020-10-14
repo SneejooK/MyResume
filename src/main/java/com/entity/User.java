@@ -10,17 +10,20 @@ import javax.persistence.*;
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    
+
     @Basic(optional = false)
     @Column(name = "name")
     private String name;
-    
+
+    @Column(name = "company")
+    private String company;
+
     @Lob
     @Column(name = "comment")
     private String comment;
@@ -46,6 +49,14 @@ public class User implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
     }
 
     public String getComment() {
@@ -78,7 +89,7 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return "User{" + "id=" + id + ", name=" + name + ", comment=" + comment + '}';
+        return "User{" + "id=" + id + ", name=" + name + ", company=" + company + ", comment=" + comment + '}';
     }
 
 }
