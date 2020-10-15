@@ -30,7 +30,7 @@ public class RegistrationServlet extends HttpServlet {
 
         String correct = "Please provide firstname";;
 
-        if (firstname == null) {
+        if (firstname == null || firstname.length() < 3) {
             req.setAttribute("correct", correct);
             req.getRequestDispatcher("/website/initpage.jsp").forward(req, resp);
             return;
