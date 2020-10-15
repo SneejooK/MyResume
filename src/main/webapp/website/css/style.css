@@ -228,7 +228,7 @@ html {
     font-family: Comic Sans MS, sans-serifle;
 }
 #nojava {
-    margin-top:250px;
+    margin-top:300px;
     font-size:20px;
     font-family: Comic Sans MS, sans-serifle;
     text-align:right;
@@ -295,7 +295,7 @@ html {
     border-radius:10px;
     border:2px dashed #FF7FFF;
     background-color:rgba(344,11,245,0.1);
-    width:300px;
+    width:320px;
     height:40px;
     outline:none;
 }

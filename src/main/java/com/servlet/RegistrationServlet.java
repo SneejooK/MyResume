@@ -35,7 +35,8 @@ public class RegistrationServlet extends HttpServlet {
             req.getRequestDispatcher("/website/initpage.jsp").forward(req, resp);
             return;
         } else {
-            ur.create(new User(firstname));
+            User user = new User(firstname);
+            ur.create(user);
             resp.sendRedirect("/resume");
         }
     }
