@@ -12,7 +12,7 @@ public class MyPattern{
     }
     
     public boolean checkCompany(String company){
-        Pattern pattern = Pattern.compile("[A-Za-z]{3,30}");
+        Pattern pattern = Pattern.compile("[A-Za-z1-9]{3,30}");
         Matcher matcher = pattern.matcher(company);
         return matcher.matches(); 
     }

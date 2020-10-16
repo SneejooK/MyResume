@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,6 +15,11 @@
         <div id="topping">
             <a href="#top" title="Вернуться к началу страницы"><img src="/website/img/strelka.png" width="120px" height="120"><p>Up</p></a>
         </div>
+        <ul id="errors1" type="none">
+            <c:forEach var="item" items="${errors}">
+                <li>${item}</li>
+                </c:forEach>
+        </ul>
         <div class="block">
             <img src="/website/img/menu.png" id="strelkamenu" width="180px" height="150">
             <div class="menu">
@@ -33,7 +39,7 @@
                 <li>Full name - <span>Yasenko Bogdan</span></li>
                 <li>Date of Birth - <span>21.04.1997</span></li>
                 <li>Accommodation - <span>Ukraine с.Kharkiv</span></li>
-                <li>Email - <span>bogda.snejok@gmail.com</span></li>
+                <li>Email - <span>bogdan.snejok@gmail.com</span></li>
                 <li>Phone - <span>+38 (063) 63 60 129</span></li>
             </dir>
         </div>
@@ -94,14 +100,19 @@
                     <summary type="click" ><span>C</span>areer</summary>
                     <ul type="none">
                         <li>Gain experience in real projects.</li>
-                        <li>Become strong Junior</li>
+                        <li>Become strong Junior.</li>
                         <li>Try yourself in mobile development and then learn Swift.</li>
-                        <li>Improve your English level.</li>
+                        <li>Improve my English level.</li>
                     </ul></div></br>
         </div>
         <div class="block1">
             <a name="Your comment"></a>
             <h1>Your comment</h1>
+            <ul id="errors2" type="none">
+                <c:forEach var="item" items="${errors}">
+                    <li>${item}</li>
+                    </c:forEach>
+            </ul>
             <form class="form" action="" method="post">
                 <lable for="company">Please, enter your company name:</lable><br>
                 <input type="text" name="company" id="company"/><br>
