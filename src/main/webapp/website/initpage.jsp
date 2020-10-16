@@ -14,6 +14,9 @@
         <img id="rightarrow" src="/website/img/enteryourname2.png" width="200px" height="200px"/>
         <div class="block">
             <form action="" method="post" >
+                <ul id="correct" type="none">
+                    <li>${correct}</li>
+                </ul>
                 <lable for="firstname">Your Name</label><br>
                     <input type="text" name="firstname" id="firstname" placeholder="Please enter your name"/><br>
                     <input type="submit" value="Enter" id="submit"/>

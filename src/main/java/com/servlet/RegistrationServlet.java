@@ -18,7 +18,7 @@ public class RegistrationServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String firstnameParametr = req.getParameter("firstname");
         if (firstnameParametr != null) {
-            resp.sendRedirect("resume");
+            resp.sendRedirect("/resume");
         } else {
             req.getRequestDispatcher("/website/initpage.jsp").forward(req, resp);
         }
@@ -30,12 +30,13 @@ public class RegistrationServlet extends HttpServlet {
 
         String correct = "Please provide firstname";;
 
-        if (firstname == null) {
+        if (firstname == null || firstname.length() < 3) {
             req.setAttribute("correct", correct);
             req.getRequestDispatcher("/website/initpage.jsp").forward(req, resp);
             return;
         } else {
-            ur.create(new User(firstname));
+            User user = new User(firstname);
+            ur.create(user);
             resp.sendRedirect("/resume");
         }
     }
