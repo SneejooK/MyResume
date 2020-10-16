@@ -10,4 +10,14 @@ public class MyPattern{
         Matcher matcher = pattern.matcher(firsntame);
         return matcher.matches(); 
     }
+    
+    public boolean checkCompany(String company){
+        Pattern pattern = Pattern.compile("[A-Za-z]{3,30}");
+        Matcher matcher = pattern.matcher(company);
+        return matcher.matches(); 
+    }
+    
+    public boolean checkComment(String comment){
+        return comment != null || comment.length() < 400;
+    }
 }
