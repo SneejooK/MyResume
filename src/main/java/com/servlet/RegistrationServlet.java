@@ -1,10 +1,12 @@
 package com.servlet;
 
 import com.entity.User;
+import com.pattern.MyPattern;
 import com.repository.UserRepository;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -29,14 +31,17 @@ public class RegistrationServlet extends HttpServlet {
         String firstname = req.getParameter("firstname");
 
         String correct = "Please provide firstname";;
+        MyPattern myPattern = new MyPattern();
 
-        if (firstname == null || firstname.length() < 3) {
+        if (!myPattern.checkFirstname(firstname)) {
             req.setAttribute("correct", correct);
             req.getRequestDispatcher("/website/initpage.jsp").forward(req, resp);
-            return;
         } else {
             User user = new User(firstname);
             ur.create(user);
+            
+            Cookie cookie = new Cookie("id", String.valueOf(user.getId()));
+            resp.addCookie(cookie);
             resp.sendRedirect("/resume");
         }
     }
