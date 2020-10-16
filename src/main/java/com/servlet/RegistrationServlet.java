@@ -18,11 +18,13 @@ public class RegistrationServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String firstnameParametr = req.getParameter("firstname");
-        if (firstnameParametr != null) {
-            resp.sendRedirect("/resume");
-        } else {
-            req.getRequestDispatcher("/website/initpage.jsp").forward(req, resp);
+        Cookie[] cookies = req.getCookies();
+        for (Cookie c : cookies) {
+            if (c.getName() == "id"){
+                resp.sendRedirect("/resume");
+            } else {
+                req.getRequestDispatcher("/website/initpage.jsp").forward(req, resp);
+            }
         }
     }
 
@@ -30,7 +32,7 @@ public class RegistrationServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String firstname = req.getParameter("firstname");
 
-        String correct = "Please provide firstname";;
+        String correct = "Please provide firstname";
         MyPattern myPattern = new MyPattern();
 
         if (!myPattern.checkFirstname(firstname)) {
@@ -39,8 +41,9 @@ public class RegistrationServlet extends HttpServlet {
         } else {
             User user = new User(firstname);
             ur.create(user);
-            
-            Cookie cookie = new Cookie("id", String.valueOf(user.getId()));
+
+            String id = String.valueOf(user.getId());
+            Cookie cookie = new Cookie("id", id);
             resp.addCookie(cookie);
             resp.sendRedirect("/resume");
         }
